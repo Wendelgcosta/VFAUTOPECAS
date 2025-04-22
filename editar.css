@@ -1,0 +1,191 @@
+/* Estilos Gerais (Mantenha ou ajuste conforme necessário) */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+    color: #495057;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.page-header {
+    text-align: left;
+    margin-bottom: 30px;
+    color: #343a40;
+}
+
+.page-header h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+/* Estilos para o Formulário de Edição */
+.edit-form {
+    padding: 25px;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.edit-form .form-group {
+    margin-bottom: 25px;
+}
+
+.edit-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #495057;
+}
+
+.edit-form .form-group input[type="text"],
+.edit-form .form-group input[type="number"],
+.edit-form .form-group input[type="file"],
+.edit-form .form-group textarea {
+    width: calc(100% - 16px);
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.edit-form .form-group input[type="text"]:focus,
+.edit-form .form-group input[type="number"]:focus,
+.edit-form .form-group input[type="file"]:focus,
+.edit-form .form-group textarea:focus {
+    border-color: #007bff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.edit-form .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.edit-form .button-group {
+    margin-top: 20px;
+}
+
+.edit-form .button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    margin-right: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.edit-form .button.primary {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+.edit-form .button.primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.edit-form .button.secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+.edit-form .button.secondary:hover {
+    background-color: #545b62;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.current-image {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+}
+
+.current-image img {
+    max-width: 120px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    margin-right: 15px;
+}
+
+.current-image-text {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.form-text {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.85em;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.not-found {
+    padding: 20px;
+    background-color: #ffebee;
+    color: #d32f2f;
+    border: 1px solid #ef9a9a;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 15px;
+    }
+
+    .page-header h1 {
+        font-size: 2em;
+    }
+
+    .edit-form {
+        padding: 15px;
+    }
+
+    .edit-form .form-group {
+        margin-bottom: 20px;
+    }
+
+    .edit-form .button-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .edit-form .button {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .current-image {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .current-image img {
+        margin-bottom: 10px;
+    }
+}

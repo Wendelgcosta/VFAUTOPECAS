@@ -1,0 +1,274 @@
+body {
+    font-family: sans-serif;
+    margin: 10px; /* Reduzi a margem padrão para telas menores */
+    background-color: #f4f4f4;
+}
+
+/* Container principal da página */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabeçalho da página */
+.page-header {
+    background-color: #a5a5a5;
+    padding: 10px;
+    display: flex;
+    align-items: center; /* Alinha verticalmente os itens ao centro */
+    /* Remova a linha abaixo para que o logo e o título fiquem na mesma linha em telas maiores */
+    /* flex-direction: column; */
+    text-align: left; /* Alinha o texto à esquerda dentro do container do cabeçalho */
+}
+
+.header-logo {
+    height: auto;
+    max-width: 200px; /* Ajuste a largura máxima conforme necessário */
+    margin-right: 20px; /* Adiciona espaço entre o logo e o título */
+    margin-bottom: 0; /* Remove a margem inferior para telas maiores */
+}
+
+.header-title {
+    flex-grow: 1; /* Faz o título ocupar o espaço restante */
+    text-align: center; /* Garante que o título também esteja alinhado à esquerda */
+    margin: 0;
+    color: #F30502;
+    font-size: 3em;
+}
+
+/* Media Query para telas menores (ex: tablets e smartphones) */
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column; /* Volta a empilhar em telas menores */
+        text-align: center; /* Centraliza o texto em telas menores */
+    }
+
+    .header-logo {
+        max-width: 80%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .header-title {
+        text-align: center;
+    }
+}
+
+/* Media Query para telas ainda menores (smartphones) */
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 1.2em;
+    }
+}
+
+/* Barra de navegação */
+.main-nav {
+    background-color: #F30502;
+    border-radius: 5px;
+    padding: 0.5em; /* Reduzi o padding para telas menores */
+    margin-top: 10px;
+    display: flex; /* Adicione display flex para o container da lista */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Mantém os itens em linha horizontal por padrão */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+}
+
+.nav-item {
+    margin: 0 15px; /* Mantém a margem horizontal entre os itens por padrão */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    display: block; /* Faz os links ocuparem a largura total do item em telas menores */
+    width: auto; /* Permite que a largura se ajuste ao conteúdo por padrão */
+    text-align: center; /* Centraliza o texto do link */
+    box-sizing: border-box; /* Evita que o padding aumente a largura total */
+}
+
+.nav-link:hover {
+    background-color: #555;
+}
+
+/* Media Query para telas menores (ex: tablets e smartphones) */
+@media (max-width: 768px) {
+    .main-nav {
+        display: block; /* Volta para display block para que a lista ocupe a largura total */
+    }
+
+    .nav-list {
+        flex-direction: column; /* Empilha os links em telas menores */
+        align-items: stretch; /* Alinha os itens para ocupar toda a largura do container */
+    }
+
+    .nav-item {
+        margin: 5px 0; /* Adiciona margem vertical entre os links em telas menores */
+    }
+
+    .nav-link {
+        width: 100%; /* Garante que o link ocupe a largura total do item em telas menores */
+        text-align: center; /* Centraliza o texto do link em telas menores */
+    }
+}
+
+/* Media Query para telas ainda menores (smartphones) */
+@media (max-width: 480px) {
+    /* ... outros estilos para telas menores ... */
+}
+
+/* Container principal dos produtos (grid) */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Força sempre 4 colunas */
+    gap: 10px;
+    margin-top: 10px;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+/* Se os produtos não couberem em 4 colunas, eles "quebrarão" para a próxima linha automaticamente */
+
+/* Cartão de cada produto */
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd; /* Reduzi a largura da borda para telas menores */
+    border-radius: 8px;
+    padding: 10px; /* Reduzi o padding para telas menores */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Reduzi a intensidade da sombra */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px; /* Adiciona padding inferior ao cartão */
+}
+
+.product-image-container {
+    margin-bottom: 5px; /* Reduzi a margem inferior para telas menores */
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-info {
+    margin-bottom: auto; /* Empurra o preço para cima */
+}
+
+.product-title {
+    margin-top: 0;
+    margin-bottom: 3px; /* Reduzi a margem inferior para telas menores */
+    color: #333;
+    font-size: 1.2em; /* Reduzi o tamanho da fonte para telas menores */
+}
+
+.product-description {
+    color: #666;
+    margin-bottom: 3px; /* Reduzi a margem inferior para telas menores */
+    margin-top: 20px; /* Reduzi a margem superior para telas menores */
+    font-size: 0.9em; /* Reduzi o tamanho da fonte para telas menores */
+}
+
+.product-price {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px; /* Mantém 10px de espaço acima do botão */
+    margin-top: 30px; /* Reduzi a margem superior para telas menores */
+    font-size: 1em; /* Reduzi o tamanho da fonte para telas menores */
+}
+
+.contact-button-container {
+    text-align: center; /* Opcional: centraliza o botão horizontalmente */
+}
+
+.contact-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.5em 1em; /* Reduzi o padding para telas menores */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em; /* Reduzi o tamanho da fonte para telas menores */
+}
+
+.contact-button:hover {
+    background-color: #0056b3;
+}
+
+/* Rodapé da página */
+.page-footer {
+    text-align: center;
+    margin-top: 20px; /* Reduzi a margem superior para telas menores */
+    padding: 0.5em 0; /* Reduzi o padding para telas menores */
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8em; /* Reduzi o tamanho da fonte para telas menores */
+}
+
+/* Media Query para telas menores (ex: tablets e smartphones) */
+@media (max-width: 768px) {
+    .products-container {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Uma coluna por produto em telas menores */
+    }
+
+    .product-card {
+        border-width: 1px;
+    }
+
+    .header-title {
+        font-size: 1.2em;
+    }
+}
+
+/* Media Query para telas ainda menores (smartphones) */
+@media (max-width: 480px) {
+    body {
+        margin: 5px;
+    }
+
+    .header-logo {
+        max-width: 90%;
+    }
+
+    .header-title {
+        font-size: 1em;
+    }
+
+    .nav-link {
+        padding: 0.3em 0.6em;
+        font-size: 0.8em;
+    }
+
+    .product-title {
+        font-size: 1em;
+    }
+
+    .product-description {
+        font-size: 0.8em;
+    }
+
+    .product-price {
+        font-size: 0.9em;
+    }
+
+    .contact-button {
+        font-size: 0.8em;
+        padding: 0.4em 0.8em;
+    }
+
+    .page-footer {
+        font-size: 0.7em;
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Produtos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/catalogo.css') }}">
+</head>
+<body>
+    <div class="page-container">
+        <header class="page-header">
+            <div class="header-logo">
+                <img src="{{ url_for('static', filename='imagens/VF Auto Peças1.png') }}" alt="Logotipo" class="header-logo">
+            </div>
+            <h1 class="header-title">Nosso Catálogo de Produtos</h1>
+        </header>
+
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#" class="nav-link">Todos os Produtos</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Motos</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Carros</a></li>
+            </ul>
+        </nav>
+
+        <main class="products-container">
+            {% for produto in produtos %}
+            <div class="product-card">
+                <div class="product-image-container">
+                    {% if produto['imagem'] %}
+                    <img src="{{ url_for('static', filename='imagens/' + produto['imagem']) }}" alt="{{ produto['nome'] }}" class="product-image">
+                    {% endif %}
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">{{ produto['nome'] }}</h3>
+                    <p class="product-description">{{ produto['descricao'] }}</p>
+                </div>
+                <div><p class="product-price">Preço: R$ {{ produto['preco'] }}</p></div>
+                <div class="contact-button-container">
+                    <a href="https://wa.me/5575982892657" class="contact-button">Entrar em contato</a>
+                </div>
+            </div>
+            {% else %}
+            <div class="empty-catalog">Nenhum produto cadastrado ainda.</div>
+            {% endfor %}
+        </main>
+
+        <footer class="page-footer">
+            <p>&copy; 2025 VF Auto Peças. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
