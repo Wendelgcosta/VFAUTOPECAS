@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Produtos</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/catalogo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="page-container">
@@ -13,15 +14,14 @@
                 <img src="{{ url_for('static', filename='imagens/VF Auto Peças1.png') }}" alt="Logotipo" class="header-logo">
             </div>
             <h1 class="header-title">Nosso Catálogo de Produtos</h1>
+            <nav class="header-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="{{ url_for('catalogo') }}" class="nav-link">Todos os Produtos</a></li>
+                    <li class="nav-item"><a href="{{ url_for('cadastro_produto') }}" class="nav-link">Cadastrar Produto</a></li>
+                    <li class="nav-item"><a href="{{ url_for('gerenciar_produtos') }}" class="nav-link">Gerenciar Produtos</a></li>
+                </ul>
+            </nav>
         </header>
-
-        <nav class="main-nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="#" class="nav-link">Todos os Produtos</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Motos</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Carros</a></li>
-            </ul>
-        </nav>
 
         <main class="products-container">
             {% for produto in produtos %}
@@ -29,15 +29,17 @@
                 <div class="product-image-container">
                     {% if produto['imagem'] %}
                     <img src="{{ url_for('static', filename='imagens/' + produto['imagem']) }}" alt="{{ produto['nome'] }}" class="product-image">
+                    {% else %}
+                    <div class="placeholder-image">Sem imagem</div>
                     {% endif %}
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">{{ produto['nome'] }}</h3>
-                    <p class="product-description">{{ produto['descricao'] }}</p>
+                    <p class="product-description">{{ produto['descricao']|truncate(50) }}</p>
+                    <p class="product-price">Preço: R$ {{ produto['preco'] }}</p>
                 </div>
-                <div><p class="product-price">Preço: R$ {{ produto['preco'] }}</p></div>
                 <div class="contact-button-container">
-                    <a href="https://wa.me/5575982892657" class="contact-button">Entrar em contato</a>
+                    <a href="https://wa.me/5575982892657" class="contact-button" target="_blank" rel="noopener noreferrer">Entrar em contato</a>
                 </div>
             </div>
             {% else %}
