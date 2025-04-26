@@ -41,8 +41,8 @@
                                 {% endif %}
                             </td>
                             <td class="actions-cell">
-                                <a href="/editar_produto/{{ produto.id }}" class="button secondary small">Editar</a>
-                                <form method="POST" action="/excluir_produto/{{ produto.id }}" class="delete-form">
+                                <a href="{{ url_for('editar_produto', produto_id=produto.id) }}" class="button secondary small">Editar</a>
+                                <form method="POST" action="{{ url_for('excluir_produto', produto_id=produto.id) }}" class="delete-form">
                                     <button type="submit" class="button danger small" onclick="return confirm('Tem certeza que deseja excluir este produto?')">Excluir</button>
                                 </form>
                             </td>
